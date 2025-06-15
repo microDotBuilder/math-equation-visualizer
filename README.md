@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Math Equation Visualizer
+
+An interactive web app to explore and visualize mathematical equations through stunning, animated graphics. Built with Next.js, React, p5.js, and Tailwind CSS, this project lets you watch equations come to life and experiment with mathematical beauty.
+
+## Features
+
+- 🌀 **Interactive Visualizations:** Browse a grid of animated math equations, each with a live preview.
+- 🔍 **Modal View:** Click any visualization to open a larger, interactive modal with the formula and animation.
+- 🎨 **Modern UI:** Clean, responsive design using Tailwind CSS and [shadcn/ui](https://ui.shadcn.com/) components.
+- ➕ **Easily Extensible:** Add your own equations and visualizations by editing a single file.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [pnpm](https://pnpm.io/) (or use npm/yarn/bun)
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Running the Development Server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
-## Learn More
+### Building for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/` – Main Next.js app, entry point (`page.tsx`), layout, and global styles.
+- `components/` – UI and visualization components:
+  - `hero.tsx` – Landing section.
+  - `visualizer-grid.tsx` – Grid of equation previews.
+  - `visualization-modal.tsx` – Modal for interactive view.
+  - `mini-p5-wrapper.tsx` & `p5-wrapper.tsx` – p5.js canvas wrappers.
+- `lib/equations.ts` – All equation definitions and their p5.js sketches.
+- `lib/utils.ts` – Utility functions (e.g., class name merging).
+- `public/` – Static assets.
 
-## Deploy on Vercel
+## Adding New Visualizations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To add a new equation:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Open `lib/equations.ts`.
+2. Add a new object to the `equations` array with the following fields:
+   - `id`: Unique string ID
+   - `title`: Display name
+   - `description`: Short explanation
+   - `formula`: Math formula as a string
+   - `sketch`: Main p5.js sketch function
+   - `miniSketch`: Smaller preview sketch function
+
+Example:
+
+```ts
+{
+  id: "my-equation",
+  title: "My Equation",
+  description: "A cool new visualization",
+  formula: "x = ...",
+  sketch: (p) => { /* p5.js code */ },
+  miniSketch: (p) => { /* p5.js code */ },
+}
+```
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [p5.js](https://p5js.org/) (for creative coding)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/) (UI components)
+- [TypeScript](https://www.typescriptlang.org/)
+
+## Scripts
+
+- `pnpm dev` – Start development server
+- `pnpm build` – Build for production
+- `pnpm start` – Start production server
+- `pnpm lint` – Run linter
+
+## Credits & Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [p5.js Reference](https://p5js.org/reference/)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [shadcn/ui Docs](https://ui.shadcn.com/docs)
+
+## License
+
+[MIT](LICENSE) (or specify your license here)
