@@ -100,4 +100,4 @@ Example:
 
 ## License
 
-[MIT](LICENSE) (or specify your license here)
+This project is licensed under the [MIT License](LICENSE).
