@@ -9,10 +9,10 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Play, Maximize2 } from "lucide-react";
-import type { Equation } from "@/app/page";
-import { equations } from "@/lib/equations";
-import { MiniP5Wrapper } from "@/components/mini-p5-wrapper";
 
+import { equations } from "@/lib/equations";
+import { P5Wrapper } from "@/components/general-p5-wrapper";
+import type { Equation } from "@/lib/equations";
 interface VisualizerGridProps {
   onEquationClick: (equation: Equation) => void;
 }
@@ -51,7 +51,7 @@ export function VisualizerGrid({ onEquationClick }: VisualizerGridProps) {
               <CardContent className="space-y-4">
                 {/* Mini Animation Preview */}
                 <div className="relative bg-black rounded-lg overflow-hidden border border-slate-600 group-hover:border-purple-500 transition-colors">
-                  <MiniP5Wrapper sketch={equation.miniSketch} />
+                  <P5Wrapper sketch={equation.sketch} size="mini" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                   <Button
                     size="sm"
