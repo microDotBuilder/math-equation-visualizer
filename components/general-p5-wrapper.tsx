@@ -2,12 +2,16 @@
 
 import { useEffect, useRef } from "react";
 import type p5 from "p5";
+import { cn } from "@/lib/utils";
 
-interface MiniP5WrapperProps {
+type screenSize = "full" | "mini";
+interface P5WrapperProps {
   sketch: (p: p5) => void;
+  size: screenSize;
+  className?: string;
 }
 
-export function MiniP5Wrapper({ sketch }: MiniP5WrapperProps) {
+export function P5Wrapper({ sketch, size, className }: P5WrapperProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const p5InstanceRef = useRef<p5 | null>(null);
 
@@ -33,10 +37,21 @@ export function MiniP5Wrapper({ sketch }: MiniP5WrapperProps) {
     };
   }, [sketch]);
 
-  return (
+  return size === "full" ? (
     <div
       ref={containerRef}
-      className="w-full h-48 flex items-center justify-center bg-black rounded-lg"
+      className={cn(
+        "border border-slate-700 rounded-lg overflow-hidden",
+        className
+      )}
+    />
+  ) : (
+    <div
+      ref={containerRef}
+      className={cn(
+        "w-full h-48 flex items-center justify-center bg-black rounded-lg",
+        className
+      )}
       style={{ minHeight: "192px" }}
     />
   );
