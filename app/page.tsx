@@ -4,16 +4,8 @@ import { useState } from "react";
 import { Hero } from "@/components/hero";
 import { VisualizerGrid } from "@/components/visualizer-grid";
 import { VisualizationModal } from "@/components/visualization-modal";
-import type p5 from "p5";
 
-export interface Equation {
-  id: string;
-  title: string;
-  description: string;
-  formula: string;
-  sketch: (p: p5) => void;
-  miniSketch: (p: p5) => void;
-}
+import type { Equation } from "@/lib/types";
 
 export default function Home() {
   const [selectedEquation, setSelectedEquation] = useState<Equation | null>(

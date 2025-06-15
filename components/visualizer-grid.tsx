@@ -12,7 +12,7 @@ import { Play, Maximize2 } from "lucide-react";
 
 import { equations } from "@/lib/equations";
 import { P5Wrapper } from "@/components/general-p5-wrapper";
-import type { Equation } from "@/lib/equations";
+import type { Equation } from "@/lib/types";
 interface VisualizerGridProps {
   onEquationClick: (equation: Equation) => void;
 }

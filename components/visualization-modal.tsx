@@ -5,7 +5,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { P5Wrapper } from "@/components/general-p5-wrapper";
-import type { Equation } from "@/lib/equations";
+import type { Equation } from "@/lib/types";
 
 interface VisualizationModalProps {
   equation: Equation | null;
