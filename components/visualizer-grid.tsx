@@ -67,7 +67,7 @@ export function VisualizerGrid({ onEquationClick }: VisualizerGridProps) {
                 </div>
 
                 {/* Formula Display */}
-                <div className="bg-slate-900/50 p-3 rounded-lg font-mono text-xs text-green-400 overflow-x-auto border border-slate-700">
+                <div className="bg-slate-900/50 min-h-16  max-h-16 flex justify-center items-center p-2 rounded-lg font-mono text-xs text-green-400 overflow-x-auto border border-slate-700">
                   {equation.formula}
                 </div>
 
