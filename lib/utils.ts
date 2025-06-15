@@ -5,11 +5,3 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
-// export function setScreenSizeForP5(p: p5, screenType: "full" | "mini") {
-//   if (screenType === "full") {
-//     p.resizeCanvas(600, 600);
-//   } else {
-//     p.resizeCanvas(300, 192);
-//   }
-// }

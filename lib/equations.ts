@@ -1,12 +1,5 @@
 import type p5 from "p5";
-
-export interface Equation {
-  id: string;
-  title: string;
-  description: string;
-  formula: string;
-  sketch: (p: p5) => void;
-}
+import type { Equation } from "./types";
 
 export const equations: Equation[] = [
   {
