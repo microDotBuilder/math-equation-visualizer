@@ -1,25 +1,36 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Play, Maximize2 } from "lucide-react"
-import type { Equation } from "@/app/page"
-import { equations } from "@/lib/equations"
-import { MiniP5Wrapper } from "@/components/mini-p5-wrapper"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Play, Maximize2 } from "lucide-react";
+import type { Equation } from "@/app/page";
+import { equations } from "@/lib/equations";
+import { MiniP5Wrapper } from "@/components/mini-p5-wrapper";
 
 interface VisualizerGridProps {
-  onEquationClick: (equation: Equation) => void
+  onEquationClick: (equation: Equation) => void;
 }
 
 export function VisualizerGrid({ onEquationClick }: VisualizerGridProps) {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <section
+      id="visualizations-grid"
+      className="py-16 px-4 sm:px-6 lg:px-8 scroll-mt-4"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Mathematical Visualizations</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Mathematical Visualizations
+          </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Watch live previews of mathematical equations in action. Click any visualization for an interactive
-            experience.
+            Watch live previews of mathematical equations in action. Click any
+            visualization for an interactive experience.
           </p>
         </div>
 
@@ -33,7 +44,9 @@ export function VisualizerGrid({ onEquationClick }: VisualizerGridProps) {
                 <CardTitle className="text-white group-hover:text-purple-400 transition-colors text-lg">
                   {equation.title}
                 </CardTitle>
-                <CardDescription className="text-gray-400 text-sm">{equation.description}</CardDescription>
+                <CardDescription className="text-gray-400 text-sm">
+                  {equation.description}
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 {/* Mini Animation Preview */}
@@ -45,8 +58,8 @@ export function VisualizerGrid({ onEquationClick }: VisualizerGridProps) {
                     variant="secondary"
                     className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 hover:bg-black/70 text-white border-slate-600"
                     onClick={(e) => {
-                      e.stopPropagation()
-                      onEquationClick(equation)
+                      e.stopPropagation();
+                      onEquationClick(equation);
                     }}
                   >
                     <Maximize2 className="w-3 h-3" />
@@ -72,5 +85,5 @@ export function VisualizerGrid({ onEquationClick }: VisualizerGridProps) {
         </div>
       </div>
     </section>
-  )
+  );
 }
